@@ -41,7 +41,7 @@ namespace HotelManagementSystem
 
         /// <summary>
         /// calculating total price of hotel for days given
-        /// UC2,UC3
+        /// UC2,UC4
         /// </summary>
         /// <param name="daysList"></param>
         public void CalculateTotalPrice(List<DayOfWeek> daysList)
