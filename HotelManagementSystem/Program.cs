@@ -5,6 +5,7 @@
 // <creator Name="Kretika Arora"/>
 // --------------------------------------------------------------------------------------------------------------------
 using System;
+using System.Collections.Generic;
 
 namespace HotelManagementSystem
 {
@@ -15,6 +16,17 @@ namespace HotelManagementSystem
             Console.WriteLine("Welcome To Hotel Reservation System");
             HotelReservation hotelReservation = new HotelReservation();
             hotelReservation.CreatingListOfHotels();
+            Console.WriteLine("Please enter the date for your stay at our hotel");
+            string dates = Console.ReadLine();
+            string[] arrayOfDates = dates.Split(',');
+            List<DayOfWeek> listOfDates = new List<DayOfWeek>();
+
+            foreach(string date in arrayOfDates)
+            {
+                DateTime dateTime= Convert.ToDateTime(date);
+                listOfDates.Add(dateTime.DayOfWeek);
+            }
+            hotelReservation.FindingTheCheapestHotel(listOfDates);
         }
     }
 }
