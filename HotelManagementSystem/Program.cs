@@ -29,7 +29,8 @@ namespace HotelManagementSystem
                 DateTime dateTime= Convert.ToDateTime(date);
                 listOfDates.Add(dateTime.DayOfWeek);
             }
-            hotelReservation.FindingTheCheapestHotel(listOfDates);
+            //hotelReservation.FindingTheCheapestHotel(listOfDates);
+            hotelReservation.BestRatedHotelForGivenDateRange(listOfDates);
         }
     }
 }
