@@ -32,10 +32,11 @@ namespace HotelManagementSystem
             hotelList.Add(new Hotel("Bridgewood", 150,50,4));
             hotelList.Add(new Hotel("Ridgewood", 220,150,5));
             ///list of hotels
+            Console.WriteLine(" ");
             Console.WriteLine("The list of Hotel with Rates is ");
             foreach(Hotel hotel in hotelList)
             {
-                Console.WriteLine("HotelName : "+ hotel.hotelName +"  RegularWeekdayRate : "+ hotel.weekdayRateForRegularCustomer);
+                Console.WriteLine("HotelName : "+ hotel.hotelName +"  RegularWeekdayRate : "+ hotel.weekdayRateForRegularCustomer+"  RegularWeekendRate : "+hotel.weekendRateForRegularCustomer);
             }
         }
 
@@ -46,7 +47,7 @@ namespace HotelManagementSystem
         /// <param name="daysList"></param>
         public void CalculateTotalPrice(List<DayOfWeek> daysList)
         {
-            int totalPrice;
+            int totalPrice;           
             foreach (Hotel hotel in hotelList)
             {
                 totalPrice = 0;
@@ -59,11 +60,10 @@ namespace HotelManagementSystem
                     else
                     {
                         totalPrice = totalPrice + hotel.weekdayRateForRegularCustomer;
-                    }                                   
-                }
-                Console.WriteLine("totalPrice :"+ totalPrice);
+                    }                   
+                }              
                 ///adding totalprice and hotelName to list
-                totalPriceForComparisonList.Add(new Hotel(totalPrice, hotel.hotelName));
+                totalPriceForComparisonList.Add(new Hotel(totalPrice, hotel.hotelName,hotel.ratingsForHotel));
             }
             
         }
@@ -81,7 +81,8 @@ namespace HotelManagementSystem
             foreach(Hotel hotel in totalPriceForComparisonList.OrderBy(a=>a.totalPrice).ToList())
             {
                 ///breaking after showing the top entry in list()
-                Console.WriteLine("Cheapest Hotel Name : "+ hotel.hotelName +"  Total Price :" +hotel.totalPrice);
+                Console.WriteLine(" ");
+                Console.WriteLine("Cheapest Hotel Name : "+ hotel.hotelName +"  Rating : "+hotel.ratingsForHotel+"  Total Price :" +hotel.totalPrice);
                 break;
             }
         }

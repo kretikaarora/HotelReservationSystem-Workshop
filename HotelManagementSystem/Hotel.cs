@@ -44,10 +44,11 @@ namespace HotelManagementSystem
         /// </summary>
         /// <param name="totalPrice"></param>
         /// <param name="hotelName"></param>
-        public Hotel(int totalPrice,string hotelName)
+        public Hotel(int totalPrice,string hotelName,int ratingsForHotel)
         {
             this.hotelName = hotelName;
             this.totalPrice = totalPrice;
+            this.ratingsForHotel = ratingsForHotel;
         }
     }
 }
