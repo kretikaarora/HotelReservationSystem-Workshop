@@ -17,6 +17,7 @@ namespace HotelManagementSystem
     {
         public string hotelName;
         public int weekdayRateForRegularCustomer;
+        ///included under UC3 for weekend rates
         public int weekendRateForRegularCustomer;
         public int totalPrice;
 
