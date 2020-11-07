@@ -28,6 +28,11 @@ namespace HotelManagementSystem
         /// </summary>
         public void CreatingListOfHotels(string customerType)
         {
+            ///adding the what type of customer 
+            ///rates are different for reward and reg customer
+            ///adding into hotelListForRegularCustomer for reg customer 
+            ///adding into hotelListForRewardCustomer for rewards customer
+            
             if (customerType.Equals(CustomerType.Regular.ToString()))
             {
                 ///adding new hotel name and their price
@@ -42,6 +47,7 @@ namespace HotelManagementSystem
                     Console.WriteLine("HotelName : " + hotel.hotelName + "  RegularWeekdayRate : " + hotel.weekdayRateForCustomer + "  RegularWeekendRate : " + hotel.weekendRateForCustomer);
                 }
             }
+
             if (customerType.Equals(CustomerType.Rewards.ToString()))
             {
                 ///adding new hotel name and their price
@@ -62,14 +68,16 @@ namespace HotelManagementSystem
 
         /// <summary>
         /// calculating total price of hotel for days given
-        /// UC2,UC4
+        /// UC2,UC4,UC10[Refractor]
         /// </summary>
         /// <param name="daysList"></param>
         public void CalculateTotalPrice(List<DayOfWeek> daysList,string customerType)
         {
+            ///checking on the basis of customer type
             int totalPrice;
             if (customerType.Equals(CustomerType.Regular.ToString()))
             {
+                ///iterating in hotelListForRegularCustomer
                 foreach (Hotel hotel in hotelListForRegularCustomer)
                 {
                     totalPrice = 0;
@@ -87,10 +95,11 @@ namespace HotelManagementSystem
                     ///adding totalprice and hotelName to list
                     totalPriceRegularCustomerComparisonList.Add(new Hotel(totalPrice, hotel.hotelName, hotel.ratingsForHotel));
                 }
-
             }
+
             if (customerType.Equals(CustomerType.Rewards.ToString()))
             {
+                ///iterating in hotelListForRewardCustomer
                 foreach (Hotel hotel in hotelListForRewardCustomer)
                 {
                     totalPrice = 0;
