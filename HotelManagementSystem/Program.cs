@@ -1,4 +1,10 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Capgemini">
+//   Copyright
+// </copyright>
+// <creator Name="Kretika Arora"/>
+// --------------------------------------------------------------------------------------------------------------------
+using System;
 
 namespace HotelManagementSystem
 {
