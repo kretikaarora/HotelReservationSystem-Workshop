@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 using System.Text;
 
 namespace HotelManagementSystem
@@ -125,18 +126,19 @@ namespace HotelManagementSystem
         /// UC2,UC3(added weekend Price)
         /// </summary>
         /// <param name="daysList"></param>
-        public void FindingTheCheapestHotel(List<DayOfWeek> daysList,string customerType)
+        public int FindingTheCheapestHotel(List<DayOfWeek> daysList,string customerType)
         {
+            
             ///calling the cal total price function 
             CalculateTotalPrice(daysList,customerType);
             ///ordering in ascending order to find cheapest hotel
             foreach(Hotel hotel in totalPriceRegularCustomerComparisonList.OrderBy(a=>a.totalPrice).ToList())
-            {
-                ///breaking after showing the top entry in list()
-                Console.WriteLine(" ");
-                Console.WriteLine("Cheapest Hotel Name : "+ hotel.hotelName +"  Rating : "+hotel.ratingsForHotel+"  Total Price :" +hotel.totalPrice);
-                break;
+            {               
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Cheapest Hotel Name : " + hotel.hotelName + "  Rating : " + hotel.ratingsForHotel + "  Total Price :" + hotel.totalPrice);
+                return hotel.totalPrice;        
             }
+            return 0;
         }
 
         /// <summary>
@@ -144,7 +146,7 @@ namespace HotelManagementSystem
         /// UC7
         /// </summary>
         /// <param name="daysList"></param>
-        public void BestRatedHotelForGivenDateRange(List<DayOfWeek> daysList,string customerType)
+        public int BestRatedHotelForGivenDateRange(List<DayOfWeek> daysList,string customerType)
         {
             CalculateTotalPrice(daysList,customerType);
             ///ordering in descending order and breaking after printing the best rated
@@ -152,9 +154,9 @@ namespace HotelManagementSystem
             {
                 Console.WriteLine(" ");
                 Console.WriteLine("BestRated Hotel Name : " + hotel.hotelName + "  Rating : " + hotel.ratingsForHotel + "  Total Price :" + hotel.totalPrice);
-                break;
+                return hotel.ratingsForHotel;
             }
-
+            return 0;
         }
     }
 }
