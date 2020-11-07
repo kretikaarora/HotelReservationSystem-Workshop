@@ -14,11 +14,14 @@ namespace HotelManagementSystem
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Hotel Reservation System");
-            HotelReservation hotelReservation = new HotelReservation();
-            hotelReservation.CreatingListOfHotels();
+            HotelReservation hotelReservation = new HotelReservation();            
             Console.WriteLine(" ");
+            Console.WriteLine("Please enter your CustomerType ie. Regular or Rewards");
+            string customerType = Console.ReadLine();
             Console.WriteLine("Please enter the date for your stay at our hotel");
             string dates = Console.ReadLine();
+            hotelReservation.CreatingListOfHotels(customerType);
+
             ///splitting dates and storing them in an array
             string[] arrayOfDates = dates.Split(',');
             List<DayOfWeek> listOfDates = new List<DayOfWeek>();
@@ -30,7 +33,7 @@ namespace HotelManagementSystem
                 listOfDates.Add(dateTime.DayOfWeek);
             }
             //hotelReservation.FindingTheCheapestHotel(listOfDates);
-            hotelReservation.BestRatedHotelForGivenDateRange(listOfDates);
+            hotelReservation.BestRatedHotelForGivenDateRange(listOfDates,customerType);
         }
     }
 }

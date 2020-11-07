@@ -16,26 +16,24 @@ namespace HotelManagementSystem
     public class Hotel
     {
         public string hotelName;
-        public int weekdayRateForRegularCustomer;
+        public int weekdayRateForCustomer;
         ///Added under UC2 for calculating total price
         public int totalPrice;
         ///Added under UC3 for weekend rates
-        public int weekendRateForRegularCustomer;
+        public int weekendRateForCustomer;
         ///Added under UC5 for checking Ratings
-        public int ratingsForHotel;
-        
-        
+        public int ratingsForHotel;   
 
         /// <summary>
         /// Parameterised Constructor
         /// </summary>
         /// <param name="hotelName"></param>
-        /// <param name="weekdayRateForRegularCustomer"></param>
-        public Hotel(string hotelName,int weekdayRateForRegularCustomer,int weekendRateForRegularCustomer,int ratingsForHotel )
+        /// <param name="weekdayRateForCustomer"></param>
+        public Hotel(string hotelName,int weekdayRateForCustomer,int weekendRateForCustomer,int ratingsForHotel )
         {
             this.hotelName = hotelName;
-            this.weekdayRateForRegularCustomer=weekdayRateForRegularCustomer;
-            this.weekendRateForRegularCustomer = weekendRateForRegularCustomer;
+            this.weekdayRateForCustomer=weekdayRateForCustomer;
+            this.weekendRateForCustomer = weekendRateForCustomer;
             this.ratingsForHotel = ratingsForHotel;
         }
 
