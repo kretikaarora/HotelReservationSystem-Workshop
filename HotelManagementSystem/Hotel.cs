@@ -17,6 +17,7 @@ namespace HotelManagementSystem
     {
         public string hotelName;
         public int weekdayRateForRegularCustomer;
+        public int weekendRateForRegularCustomer;
         public int totalPrice;
 
         /// <summary>
@@ -24,10 +25,11 @@ namespace HotelManagementSystem
         /// </summary>
         /// <param name="hotelName"></param>
         /// <param name="weekdayRateForRegularCustomer"></param>
-        public Hotel(string hotelName,int weekdayRateForRegularCustomer)
+        public Hotel(string hotelName,int weekdayRateForRegularCustomer,int weekendRateForRegularCustomer )
         {
             this.hotelName = hotelName;
             this.weekdayRateForRegularCustomer=weekdayRateForRegularCustomer;
+            this.weekendRateForRegularCustomer = weekendRateForRegularCustomer;
         }
 
         /// <summary>
