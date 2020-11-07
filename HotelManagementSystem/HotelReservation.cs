@@ -86,5 +86,23 @@ namespace HotelManagementSystem
                 break;
             }
         }
+
+        /// <summary>
+        /// Best Rated Hotel For Given DateRange
+        /// UC7
+        /// </summary>
+        /// <param name="daysList"></param>
+        public void BestRatedHotelForGivenDateRange(List<DayOfWeek> daysList)
+        {
+            CalculateTotalPrice(daysList);
+            ///ordering in descending order and breaking after printing the best rated
+            foreach (Hotel hotel in totalPriceForComparisonList.OrderByDescending(a => a.ratingsForHotel).ToList())
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("BestRated Hotel Name : " + hotel.hotelName + "  Rating : " + hotel.ratingsForHotel + "  Total Price :" + hotel.totalPrice);
+                break;
+            }
+
+        }
     }
 }
